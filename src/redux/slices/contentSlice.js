@@ -39,26 +39,23 @@ export const getPost = createAsyncThunk(
   'content/getPost',
   async function (_, {
     getState,
-    rejectWithValue
   }) {
 
     let usersID = getState().content.users.map(user => user.userId); // получаю id user-ов
 
-    let posts = usersID.map(async (userId) => { //пытаюсь для каждого апросить по 1 посту
+    let posts = usersID.map( async (userId) => { //пытаюсь для каждого апросить по 1 посту
       return fetch(`https://jsonplaceholder.typicode.com/users/${userId}/posts?_limit=1`)
         .then(responce => {
-          if (!responce.ok) {
-            throw new Error ('ошибка загрузки поста')
-          }
-          return responce.json();
-        })
-        .catch (error=>error.message) ;
-    })
+          return responce.json() ;
+        }) 
+      } )
+    
     let result = Promise.all(posts)
 
     let res = await result.then(posts => {
       return posts.flat();
     })
+    
     return res;
   })
 
@@ -69,25 +66,23 @@ export const getImages = createAsyncThunk(
     getState,
   }) {
    
-    let usersID = getState().content.users.map(user => user.userId); 
-
-    let responce = usersID.map(async (userId) => { 
+    let usersID = getState().content.users.map( user => user.userId ) ; 
+    
+    let images = usersID.map(async (userId) => { 
       return fetch(`https:jsonplaceholder.typicode.com/albums/${userId}/photos?_limit=1`)
-        .then(responce => {
-          if (!responce.ok) {
-            throw new Error ('ошибка загрузки поста')
-          }
-          return responce.json();
-        })
-        .catch (error=>error.message) ;
+      .then(responce => {
+        return responce.json() } ) 
+    
+    }) ;
+
+    let result = Promise.all(images) ;
+
+    let res = await result.then(image => {
+      return image.flat();
     })
 
-    let images = Promise.all(responce) ;
-
-    let res = await images.then(posts => {
-      return posts.flat();
-    })
     return res;
+
   });
 
 

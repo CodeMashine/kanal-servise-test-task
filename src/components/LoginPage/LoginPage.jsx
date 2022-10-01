@@ -28,7 +28,6 @@ export default function LoginPage() {
         dispatch) {
 
         if (login === inletLogin && password === inletPassword) {
-            console.log('logIN');
             dispatch(setAuth("contentPage"));
             return;
         } else {
@@ -43,14 +42,14 @@ export default function LoginPage() {
     }
 
     return (
-        <div className={"flex h-screen justify-center items-center flex-col lg:justify-start"}>
+        <div className={"flex h-screen justify-start items-center flex-col lg:justify-start"}>
             <div className="absolute text-5xl font-extrabold ">
                 {error ? errorMessage : ''}
             </div>
             <div className={`flex flex-col border-[14px] justify-center items-center
-             border-blue-water shadow-sm w-[80%] h-[40%] mt-32 rounded-xl 
-             md:border-[8px] md:justify-start
-             lg:w-[40%] lg:border-[4px]
+             border-blue-water shadow-sm w-[80%] h-[30%] mt-32 rounded-xl 
+             md:border-[8px] md:justify-start md:h-[32rem]
+             lg:w-[40%] lg:border-[4px] lg:h-[35%]
              `}>
                 <span className={`mx-auto text-blue-water font-extrabold text-6xl md:text-4xl mt-8 mb-[5rem] 
                 lg:text-2xl lg:mb-[3rem]

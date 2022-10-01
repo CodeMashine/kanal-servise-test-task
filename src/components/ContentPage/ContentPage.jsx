@@ -32,7 +32,7 @@ export default function ContentPage() {
         if (data.statusUsers === "resolved" && data.statusPosts === "none") {
             dispatch(getPost());
         }
-        if (data.statusUsers === "resolved" && data.statusImages === "none") {
+        if (data.statusUsers ==="resolved" && data.statusImages === "none") {
             dispatch(getImages());
         }
     })
@@ -51,8 +51,8 @@ export default function ContentPage() {
     // md:space-x-[2rem]
 
     if ((data.statusUsers && data.statusImages === "resolved") && data.statusPosts === "resolved") {
-        output = <div className = {`mt-[23rem]  md:mt-[10rem] flex flex-row flex-wrap justify-center 
-        md:justify-between lg:w-[70%] lg:mt-[2rem]`}>
+        output = <div className = {`mt-[4rem] flex flex-row flex-wrap justify-evenly
+        md:justify-evenly lg:w-[70%] lg:mt-[2rem]`}>
             {data.users.map((user, num) => {
                 const post = findPost(user.userId);
                 const image = findImage(user.userId);
@@ -95,7 +95,7 @@ export default function ContentPage() {
 
 
     return (
-        <div className=" w-full flex items-center justify-center">
+        <div className=" w-full flex justify-center">
             {output}
         </div>
     )

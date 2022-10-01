@@ -17,7 +17,6 @@ export default function Header() {
     const dispatch = useDispatch() ;
     
     function screenSize () {
-        // return true ;
         if (window.innerWidth <= 768) {
             return true ;
         }
@@ -27,12 +26,10 @@ export default function Header() {
     
     const [ isSmall ] = useState(screenSize()) ;
 
-    console.log(isSmall) ;
-
     let quit;
 
     if (isAuth === "contentPage") {
-        quit = <div className="flex flex-row items-center ml-auto pr-20 md:h-[50%] md:pr-[10]">
+        quit = <div className="flex flex-row items-center pr-[2rem] ml-auto pr-20 md:h-[50%] ">
             <div className="font-bold text-2xl pr-5 md:visible invisible">
                 {userName}
             </div>
@@ -49,8 +46,8 @@ export default function Header() {
     
     
     return (
-        <div className={"w-full bg-orange h-[20%] md:h-[8%] lg:h-[5rem] flex flex-row items-center sticky"} >
-            <div className={"pl-12 md:ml-[2rem] h-[60%] lg:pl-[3rem]"}>
+        <div className={"w-full bg-orange h-[5rem] md:h-[5rem] lg:h-[5rem] flex flex-row items-center sticky"} >
+            <div className={"pl-[2rem] h-[60%] lg:pl-[3rem]"}>
                 {isSmall? logoMin:logoMax}
             </div>
                 {quit}
