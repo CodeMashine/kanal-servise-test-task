@@ -1,4 +1,5 @@
 {
+  "homepage": "https://codemashine.github.io/kanal-servise-test-task",
   "name": "kanal_servise",
   "version": "0.1.0",
   "private": true,
@@ -19,6 +20,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "predeploy": "npm run build",
+    "deploy":"gh-pages -d build" ,
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -42,6 +45,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.4.11",
+    "gh-pages": "^4.0.0",
     "postcss": "^8.4.16",
     "tailwindcss": "^3.1.8"
   }
